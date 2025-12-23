@@ -1,31 +1,68 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Doco Task Pane Add-in</title>
 
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script
+      type="text/javascript"
+      src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"
+    ></script>
 
     <!-- Template styles -->
-    <style>
+    <!-- <style>
         body {
             font-family: "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
             font-size: 14px;
             margin: 0;
             padding: 10px;
         }
-    </style>
-</head>
+    </style> -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body class="">
+  <body class="">
     <main id="app-body">
-        <h1>Doco Challenge</h1>
-    </main>
-    <script type="text/javascript" src="taskpane.js"></script>
-</body>
+      <h1>Doco Challenge</h1>
+      <p class="app__subtitle">
+        Redact sensitive info, add a confidentiality header, and track changes.
+      </p>
+      <section class="card">
+        <button id="run-btn" class="btn btn--primary" type="button" disabled>
+          Redact &amp; Mark Confidential
+        </button>
+        <p class="hint">
+          Scans for emails, phone numbers, and SSNs, then replaces them with
+          redaction markers.
+        </p>
+      </section>
 
+      <section class="card">
+        <h2 class="card__title">Status</h2>
+        <div id="status" class="status status--idle">Loading Office…</div>
+
+        <div id="results" class="results" hidden>
+          <div class="results__row">
+            <span>Track changes:</span> <strong id="r-track">—</strong>
+          </div>
+          <div class="results__row">
+            <span>Header:</span> <strong id="r-header">—</strong>
+          </div>
+          <div class="results__row">
+            <span>Emails redacted:</span> <strong id="r-emails">0</strong>
+          </div>
+          <div class="results__row">
+            <span>Phones redacted:</span> <strong id="r-phones">0</strong>
+          </div>
+          <div class="results__row">
+            <span>SSNs redacted:</span> <strong id="r-ssns">0</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="src/taskpane.js"></script>
+  </body>
 </html>

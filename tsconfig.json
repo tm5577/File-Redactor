@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
+    "moduleResolution": "node",
     "sourceMap": true,
     "strict": true,
     "lib": ["dom", "es2015"],
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "types": ["office-js"]
   },
-  "include": ["*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

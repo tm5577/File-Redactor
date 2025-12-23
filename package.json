@@ -8,13 +8,12 @@
   },
   "scripts": {
     "start": "concurrently \"npm run watch\" \"npm run dev-server\" \"office-addin-debugging start manifest.xml\"",
-    "dev-server": "http-server -S --cors . -p 3000",
+    "dev-server": "http-server --cors . -p 3000 -a localhost -S -C cert.pem -K key.pem",
     "watch": "tsc -w",
     "build": "tsc",
     "stop": "office-addin-debugging stop manifest.xml",
     "validate": "office-addin-manifest validate manifest.xml"
   },
-  "dependencies": {},
   "devDependencies": {
     "@types/office-js": "^1.0.377",
     "concurrently": "^8.2.2",
@@ -22,6 +21,7 @@
     "office-addin-debugging": "^5.1.6",
     "office-addin-dev-certs": "^1.13.5",
     "office-addin-manifest": "^1.13.6",
+    "semver": "^7.7.3",
     "typescript": "^5.4.2"
   }
 }

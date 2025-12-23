@@ -128,3 +128,17 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Node
+node_modules/
+
+# TypeScript build output
+src/**/*.js
+src/**/*.js.map
+
+# Certificates
+cert.pem
+key.pem
+
+# OS junk
+.DS_Store
